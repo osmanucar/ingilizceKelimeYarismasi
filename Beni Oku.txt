@@ -1,0 +1,3 @@
+Hocam projede mysql veritabanını ve xampp i kullandım.LearnWordsDepo klasörü xampp klasöründe htdocs doyasının içerisindeydi.
+Veritabanınınıda paylaştım ilerde web hostingle yapacağım devam edeceğim projeye herkesin heryerden erişebilmesi için.
+Learnenglish klsörüde unity projesidir.
