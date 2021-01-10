@@ -17,7 +17,9 @@ public class KayitOL : MonoBehaviour
     public Button devam;
     public Button kaydol;
     public TextMeshProUGUI mesajYazisi;
-    
+
+    public GameObject giris_P, anamenu_P;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,9 @@ public class KayitOL : MonoBehaviour
 
     public void devamButonu()
     {
+       // giris_P.SetActive(true);
+       // anamenu_P.SetActive(false);
+        // SahneDegistirici.sahneDegis(0);
         SceneManager.LoadScene("Anamenu"); //Tekrar giriş alanına dönmek için.
     }
 
