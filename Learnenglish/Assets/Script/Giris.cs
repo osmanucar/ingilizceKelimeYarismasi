@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 using TMPro;
 using UnityEngine.Networking;
 
@@ -16,12 +16,13 @@ public class Giris : MonoBehaviour
     public TextMeshProUGUI mesajYazisi;
     void Start()
     {
-      //  girisYap_B.SetActive(false); //Giriş yap butonu ilk başta kapalıdır.
+        girisYap_B.SetActive(false); //Giriş yap butonu ilk başta kapalıdır.
     }
 
     public void register_Buton()
     {
-        SceneManager.LoadScene("RegisterScreen");   //Kaydolma sahnesine geçmeye yarar.
+        SahneDegistirici.sahneDegis(1);
+       // SceneManager.LoadScene("RegisterScreen");   //Kaydolma sahnesine geçmeye yarar.
     }
 
     void Update()
