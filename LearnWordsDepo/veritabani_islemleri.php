@@ -42,4 +42,64 @@ if($_POST['unity']=="kayitOl"){
 	}	
 }
 
+if($_POST['unity']=="sorular"){
+	
+	$sorgu="select * from sorular";
+    $sorguSonucu=$baglanti -> query($sorgu);
+
+if($sorguSonucu->num_rows>0){
+	$butunSatirlar=array();
+    while($satirlar=$sorguSonucu->fetch_object()){
+
+    array_push($butunSatirlar,array(
+	
+	"soru"=>$satirlar->soru,
+	"a_Cevab"=>$satirlar->a_Cevabi,
+	"b_Cevab"=>$satirlar->b_Cevabi,
+	"c_Cevab"=>$satirlar->c_Cavabi,
+	"d_Cevab"=>$satirlar->d_Cevabi,
+	"dogruCevab"=>$satirlar->dogruCevap,
+	"saniye"=>$satirlar->saniye,	
+	)
+	);
+
+    }
+    echo json_encode(array("butunSorular"=>$butunSatirlar));
+    }
+    else{
+        //Hata
+    }
+}
+
+//////////////
+if($_POST['unity']=="turkceSorulari"){
+	
+	$sorgu="select * from turkceSorular";
+    $sorguSonucu=$baglanti -> query($sorgu);
+
+if($sorguSonucu->num_rows>0){
+	$butunSatirlar=array();
+    while($satirlar=$sorguSonucu->fetch_object()){
+
+    array_push($butunSatirlar,array(
+	
+	"soru"=>$satirlar->soru,
+	"a_Cevab"=>$satirlar->a_Cevabi,
+	"b_Cevab"=>$satirlar->b_Cevabi,
+	"c_Cevab"=>$satirlar->c_Cevabi,
+	"d_Cevab"=>$satirlar->d_Cevabi,
+	"dogruCevab"=>$satirlar->dogruCevap,
+	"saniye"=>$satirlar->saniye,	
+	)
+	);
+
+    }
+    echo json_encode(array("butunSorular"=>$butunSatirlar));
+    }
+    else{
+        //Hata
+    }
+}
+
+$baglanti->close();
 ?>
