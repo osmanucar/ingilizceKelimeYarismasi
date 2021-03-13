@@ -47,10 +47,12 @@ public class TurkceOyunDongusu : MonoBehaviour
     public GameObject gameOver_P;
     public bool oyunBasladimi;
 
+    JokerSistemi jokerSistemi;
+
     void Start()
     {
         sesKaynagi = GetComponent<AudioSource>();
-
+        jokerSistemi = GetComponent<JokerSistemi>();
         
         StartCoroutine(turkceSorulariGetir());
         zaman = 15; //ilk zaman atama
@@ -96,7 +98,17 @@ public class TurkceOyunDongusu : MonoBehaviour
         SahneDegistirici.sahneDegis(2);
     }
 
-    
+    public void anaMenu_B()
+    {
+        SahneDegistirici.sahneDegis(0);
+    }
+
+    public void tekrarOyna_B()
+    {
+        SahneDegistirici.sahneDegis(4);
+    }
+
+
     IEnumerator turkceSorulariGetir()
     {
         WWWForm form = new WWWForm();
@@ -134,6 +146,8 @@ public class TurkceOyunDongusu : MonoBehaviour
 
         zaman = birimSoruModel.saniye;
         zamanSlider.maxValue = birimSoruModel.saniye;
+
+        jokerSistemi.sifirla();
     }
 
     public void kontrolEt(int basilanCevap) //cevap doğrumu yanlışmı kontrol ediyor.
@@ -154,6 +168,16 @@ public class TurkceOyunDongusu : MonoBehaviour
             butonImages[birimSoruModel.dogruCevab - 1].color = dogruRenk;
             gameOver();
         }
+    }
+
+    public void yuzde25Kullan()
+    {
+        jokerSistemi.yuzdeliJokerKullan(birimSoruModel.dogruCevab, "25");
+    }
+
+    public void yuzde50Kullan()
+    {
+        jokerSistemi.yuzdeliJokerKullan(birimSoruModel.dogruCevab, "50");
     }
 }
 
